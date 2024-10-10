@@ -1,0 +1,57 @@
+.TableWrapper {
+  padding: 10px 90px 20px 20px;
+}
+
+.UserTable {
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid rgb(211, 211, 211);
+  overflow: hidden;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-spacing: 0;
+}
+
+.TableHeader {
+  color: rgb(165, 165, 165);
+
+  & th {
+    font-weight: normal;
+    font-size: 1.1rem;
+    text-align: left;
+    padding: 10px 0 10px 10px;
+    border-bottom: 1px solid rgb(211, 211, 211);
+  }
+
+  & th:last-child {
+    width: 15%;
+  }
+}
+
+.TableBody {
+  & td {
+    text-align: left;
+    padding: 10px 10px 10px 15px;
+    border-bottom: 1px solid rgb(211, 211, 211);
+    white-space: nowrap;
+  }
+
+  & tr td:last-child {
+    text-align: center;
+  }
+
+  & tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+@media (width <= 720px) {
+  .TableWrapper {
+    overflow-x: auto;
+  }
+
+  .UserTable {
+    overflow-x: scroll;
+    width: 800px;
+  }
+}
