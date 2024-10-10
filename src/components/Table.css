@@ -1,5 +1,10 @@
 .TableWrapper {
   padding: 10px 90px 20px 20px;
+
+  &.DarkTheme {
+    background-color:rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+  }
 }
 
 .UserTable {

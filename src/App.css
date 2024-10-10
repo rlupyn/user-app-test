@@ -1,0 +1,7 @@
+.App {
+  height: 100vh;
+
+  &.DarkTheme {
+    background-color: rgb(0, 0, 0);
+  }
+}

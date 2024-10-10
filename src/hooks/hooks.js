@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import { loadUserData, filterUsersByMonth } from '../utils/utils';
+import { LIGHT_THEME } from '../constants';
 
 export function useUserData() {
   const [userData, setUserData] = useState(null)
@@ -17,3 +18,5 @@ export function useUserData() {
 
   return { userData, filteredUsers, setFilteredUsers }
 }
+
+export const ThemeContext = createContext(LIGHT_THEME);

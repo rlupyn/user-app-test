@@ -1,11 +1,17 @@
+import { useContext } from 'react';
+import { ThemeContext } from '../hooks/hooks';
+import { getClassNameByTheme } from '../utils/utils';
 import { Loader } from './Loader';
 import './Table.css'
 
 export function Table({ filteredUsers }) {
+  const theme = useContext(ThemeContext)
+
   if (!filteredUsers) return <Loader />
 
+  const tableWrapperClassName = getClassNameByTheme('TableWrapper', theme)
   return (
-    <div className="TableWrapper">
+    <div className={tableWrapperClassName}>
       <table className="UserTable">
         <thead className="TableHeader">
           <tr>

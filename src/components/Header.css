@@ -4,25 +4,40 @@
   justify-content: space-between;
   padding: 20px 90px 10px 20px;
   font-size: 1.5rem;
-  color: rgb(255, 255, 255);
-  background-color: rgb(32 87 188);
+  color: rgb(0, 0, 0);
+  background-color: rgb(173 216 230);
+
+  &.DarkTheme {
+    color: rgb(255, 255, 255);
+    background-color: rgb(41, 41, 41);
+  }
 }
 
 .FilterControl {
   display: flex;
+
+  & .HeaderButton:first-child {
+    margin-right: 25px;
+  }
 }
 
-.FilterButton, .FilterOptions {
-  color: rgb(255, 255, 255);
-  border-color: rgb(255, 255, 255);
-  background-color: rgb(32 87 188);
+.HeaderButton, .FilterOptions {
+  background-color: rgb(173 216 230);
+  color: rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0);
   border-radius: 5px;
   padding: 5px 10px;
+
+  &.DarkTheme {
+    color: rgb(255, 255, 255);
+    background-color: rgb(41, 41, 41);
+    border-color: rgb(255, 255, 255);
+  }
 }
 
-.FilterButton {
+.HeaderButton {
   cursor: pointer;
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid rgb(0, 0, 0);
   text-align: center;
   text-decoration: none;
 }
@@ -35,9 +50,13 @@
 @media (width <= 720px) {
   .FilterControl {
     flex-direction: column;
+
+    & .HeaderButton:first-child {
+      margin-right: 0;
+    }
   }
 
-  .FilterButton {
+  .HeaderButton {
     width: 150px;
     margin-bottom: 20px;
   }

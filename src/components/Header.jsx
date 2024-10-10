@@ -1,7 +1,11 @@
-import { ALL_MONTHS, MONTHS_MAPPING } from '../utils/utils'
+import { useContext } from 'react';
+import { ThemeContext } from '../hooks/hooks';
+import { ALL_MONTHS, MONTHS_MAPPING } from '../constants'
 import './Header.css'
+import { getClassNameByTheme } from '../utils/utils';
 
-export function Header({ setSelectedMonth, applyFilter }) {
+export function Header({ setSelectedMonth, applyFilter, switchTheme }) {
+  const theme = useContext(ThemeContext)
   const currentDate = new Date()
 
   const onSelect = (event) => {
@@ -9,14 +13,19 @@ export function Header({ setSelectedMonth, applyFilter }) {
     setSelectedMonth(selectedValue)
   }
 
+  const headerClassName = getClassNameByTheme('Header', theme)
+  const buttonClassName = getClassNameByTheme('HeaderButton', theme)
+  const optionsClassName = getClassNameByTheme('FilterOptions', theme)
+
   return (
-    <div className="Header">
+    <div className={headerClassName}>
       <span>Employee Information</span>
       <div className="FilterControl">
-        <button className="FilterButton" onClick={applyFilter}>Apply filter</button>
+        <button className={buttonClassName} onClick={switchTheme}>Theme</button>
+        <button className={buttonClassName} onClick={applyFilter}>Apply filter</button>
         <select
           name="sort-options"
-          className="FilterOptions"
+          className={optionsClassName}
           defaultValue={currentDate.getMonth()}
           onChange={onSelect}
         >

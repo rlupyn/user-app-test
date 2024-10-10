@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useUserData } from './hooks/useFileData'
-import { filterUsersByMonth } from './utils/utils'
+import { DARK_THEME, LIGHT_THEME } from './constants';
+import { useUserData, ThemeContext } from './hooks/hooks'
+import { filterUsersByMonth, getClassNameByTheme } from './utils/utils'
 import { Table } from './components/Table';
 import { Header } from './components/Header';
 import './App.css';
@@ -8,17 +9,31 @@ import './App.css';
 function App() {
   const { userData, filteredUsers, setFilteredUsers } = useUserData()
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth())
-  
+  const [theme, setTheme] = useState(LIGHT_THEME)
+
   const applyFilter = () => {
     const usersFilteredByMonth = filterUsersByMonth(userData, selectedMonth)
-     setFilteredUsers(usersFilteredByMonth)
+    setFilteredUsers(usersFilteredByMonth)
   }
 
+  const switchTheme = () => {
+    const newValue = (theme === LIGHT_THEME) ? DARK_THEME : LIGHT_THEME
+    setTheme(newValue)
+  }
+
+  const appClassName = getClassNameByTheme('App', theme)
+
   return (
-    <div className="App">
-      <Header setSelectedMonth={setSelectedMonth} applyFilter={applyFilter}  />
-      <Table filteredUsers={filteredUsers} />
-    </div>
+    <ThemeContext.Provider value={theme}>
+      <div className={appClassName}>
+        <Header
+          setSelectedMonth={setSelectedMonth}
+          applyFilter={applyFilter}
+          switchTheme={switchTheme}
+        />
+        <Table filteredUsers={filteredUsers} />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
