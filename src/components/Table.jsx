@@ -15,10 +15,30 @@ export function Table({ filteredUsers }) {
       <table className="UserTable">
         <thead className="TableHeader">
           <tr>
-            <th scope="col">First name</th>
-            <th scope="col">Last name</th>
-            <th scope="col">Location</th>
-            <th scope="col">Birthday</th>
+            <th scope="col">
+              <div>
+                <span>First name</span>
+                <div className="Divider" />
+              </div>
+            </th>
+            <th scope="col">
+              <div>
+                <span>Last name</span>
+                <div className="Divider" />
+              </div>
+            </th>
+            <th scope="col">
+              <div>
+                <span>Location</span>
+                <div className="Divider" />
+              </div>
+            </th>
+            <th scope="col">
+              <div>
+                <span>Birthday</span>
+                <div className="Divider" />
+              </div>
+            </th>
             <th scope="col">Age(years)</th>
           </tr>
         </thead>

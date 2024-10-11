@@ -26,6 +26,12 @@
     text-align: left;
     padding: 10px 0 10px 10px;
     border-bottom: 1px solid rgb(211, 211, 211);
+
+    & div:first-child {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   & th:last-child {
@@ -48,6 +54,13 @@
   & tr:last-child td {
     border-bottom: none;
   }
+}
+
+.Divider {
+  width: 15px;
+  height: 2px;
+  background-color: rgb(211, 211, 211);
+  transform: rotate(90deg);
 }
 
 @media (width <= 720px) {
