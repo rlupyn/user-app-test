@@ -25,6 +25,7 @@ export function Header({ setSelectedMonth, applyFilter, switchTheme }) {
         <button className={buttonClassName} onClick={applyFilter}>Apply filter</button>
         <select
           name="sort-options"
+          data-testid="sort-options"
           className={optionsClassName}
           defaultValue={currentDate.getMonth()}
           onChange={onSelect}
